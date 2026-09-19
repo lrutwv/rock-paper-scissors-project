@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rock Paper Scissors</title>
+
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+
+<body>
+
+    <main class="game-panel">
+
+        <div class="top-right-avatar">
+          <img src="public/images/yeah.webp" alt="Decorative avatar">
+          <img src="public/images/so.webp" alt="yeah" >
+          <img src="public/images/wa.webp" alt ="water">
+          <img src="public/images/fi.webp" alt="fish">
+        </div>
+
+        <div class="bottom-left-avatar">
+          <img src="public/images/fishhm.webp" alt="Decorative avatar">
+         </div>
+
+     <!-- Music Player -->
+      <div class="music-player">
+
+         <img
+        class="music-avatar-top"
+        src="public/images/fishh.webp"
+        alt=""
+    >
+        <img
+        class="music-avatar-bottom"
+        src="public/images/mus.webp"
+        alt=""
+     >
+
+          <audio class="music-audio" 
+          src="public/sounds/Lease - Takeshi Abo.mp3">
+          </audio>
+
+          <img
+              class="music-cover"
+              src="public/images/summer.jfif"
+              alt="Music cover"
+          >
+          <div class="music-info">
+              <p class="music-title">Lease - Takeshi Abo</p>
+
+              <div class="music-controls">
+
+              <button type="button" class="previous-button">
+                 <img src="public/icons/previous-arrows-svgrepo-com.svg" 
+                 alt="previous"
+                 >
+            
+             </button>
+
+             <button type="button" class="play-button">
+                  <img src="public/icons/play-button-arrows-svgrepo-com.svg" alt="play">
+             </button>
+
+              <button type="button" class="next-button">
+                 <img src="public/icons/next-arrows-svgrepo-com.svg" alt="next">
+               </button>
+
+</div>
+           </div>
+       </div>
+
+       <div class="corner-avatar">
+         <img src="public/images/idk.webp" alt="Decorative avatar">
+       </div>
+
+        <div class="game-box">
+
+            <!-- Game Header -->
+            <header class="game-header">
+                <h1>Rock Paper Scissors</h1>
+                
+                    <img class="human" src="public/images/hum.webp" alt="hum">
+                     <span>VS</span>
+                    <img src="public/images/com.webp" alt="computer">
+    
+            </header>
+
+
+            <!-- Round Selection -->
+            <section class="round-selection">
+
+                <h2>Choose Rounds</h2>
+
+                <div class="round-buttons">
+                    <button type="button">5 Rounds</button>
+                    <button type="button">7 Rounds</button>
+                </div>
+
+            </section>
+
+
+            <!-- Battle Area -->
+            <section class="battle-area">
+
+                <div class="player">
+
+                    <h2>Human</h2>
+
+                    <img class="firstimg"
+                        src="public/images/han-rock.png"
+                        alt="Human hand"
+                    >
+
+                </div>
+
+
+                <div class="vs">
+                    VS
+                </div>
+
+
+                <div class="player">
+
+                    <h2>Robot</h2>
+
+                    <img class="secondimg"
+                        src="public/images/rob-rock.png"
+                        alt="Robot hand"
+                    >
+
+                </div>
+
+            </section>
+
+            <!-- Game Result -->
+            <section class="game-result">
+
+                <p class="game-result-message">
+                    You Win!
+                </p>
+
+            </section>
+
+
+            <!-- Player Choices -->
+            <section class="choices">
+
+                <h2>Choose Your Move</h2>
+
+                <div class="choice-buttons">
+
+                    <button type="button">Rock</button>
+
+                    <button type="button">Paper</button>
+
+                    <button type="button">Scissors</button>
+
+                </div>
+
+            </section>
+
+
+            <!-- Scoreboard -->
+            <section class="scoreboard">
+
+                <div class="score">
+
+                    <img class="human" src="public/images/hum.webp" alt="hum">
+                    <p class="player-score">0</p>
+
+                </div>
+
+
+                <div class="round">
+
+                    <p>ROUND</p>
+                    <p class="round-display"></p>
+
+                </div>
+
+
+                <div class="score">
+
+                    <img src="public/images/com.webp" alt="computer">
+                    <p class="computer-score">0</p>
+
+                </div>
+
+            </section>
+
+
+            <!-- Result -->
+            <section class="result-area">
+
+                <p class="result-message">
+                    Make your choice!
+                </p>
+
+            </section>
+
+
+            <!-- Restart -->
+            <button
+                class="restart-button"
+                type="button"
+            >
+                Restart Game
+            </button>
+
+          <!-- Game Over Overlay -->
+            <section class="game-over-overlay">
+
+                <div class="game-over-box">
+
+                    <h2 class="game-over-heading">
+                        GAME OVER
+                    </h2>
+
+                    <div class="game-over-title-row">
+    
+                         <img 
+                       class="clap-image"
+                       src="public/images/clappp.webp" 
+                       alt="clap">
+
+                      <h2 class="game-over-title">
+                        You Win!
+                      </h2>
+
+                    </div>
+    
+                    <button
+                        class="play-again-button"
+                        type="button"
+                    >
+                        Play Again ?
+                    </button>
+
+                    <img
+                      class="fish-avatar"
+                      src="public/images/morefishh.gif"
+                       alt="fish"
+                    >
+
+                    <img
+                   class="lose-avatar"
+                    src="public/images/stamp.png"
+                    alt="lose avatar"
+                    >
+
+                </div>
+
+            </section>
+        </div>           
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

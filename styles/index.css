@@ -1,0 +1,847 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800;900&family=Press+Start+2P&family=VT323&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ================================
+   RESULT ANIMATIONS
+================================ */
+
+@keyframes winAnimation {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes loseAnimation {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes drawAnimation {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.win-animation {
+    animation: winAnimation 0.4s ease;
+
+    border: 2px solid #A8DDB5 !important;
+}
+
+.win-animation .game-result-message {
+    color: #A8DDB5;
+}
+
+.lose-animation {
+    animation: loseAnimation 0.4s ease;
+
+    border: 2px solid #FF9B85 !important;
+}
+
+.lose-animation .game-result-message {
+    color: #FF9B85;
+}
+
+.draw-animation {
+    animation: drawAnimation 0.4s ease;
+
+    border: 2px solid #FFE29A !important;
+}
+
+.draw-animation .game-result-message {
+    color: #FFE29A;
+}
+
+
+/* ================================
+   PAGE
+================================ */
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    background-color: #17465B;
+
+    background-image: url('../public/images/download\ \(36\).jfif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #FFF8E7;
+
+    font-family: 'VT323', monospace;
+}
+
+
+/* ================================
+   OUTER PAGE PANEL
+================================ */
+
+.game-panel {
+    width: 100%;
+    max-width: 1100px;
+
+    padding: 40px;
+
+    background-color: #A8E6F0;
+    background-image: url('../public/images/cover.jpg');
+    background-size: 55px;
+    border: 3px solid #4DB8D8;
+
+    border-radius: 16px;
+
+    position: relative;
+}
+
+.top-right-avatar {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    z-index: 20;
+}
+
+.top-right-avatar img {
+    display: block;
+}
+
+.bottom-left-avatar {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    z-index: 20;
+}
+
+.bottom-left-avatar img {
+    width: 90px;
+    height: auto;
+    display: block;
+}
+
+
+/* ================================
+   MUSIC PLAYER
+================================ */
+
+.music-player {
+    position: absolute;
+
+    top: 250px;
+    left: 6px;
+
+    width: 155px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 8px;
+
+    background-color: rgba(23, 70, 91, 0.94);
+    opacity: 0.8;
+    border: 1px solid #FF9B85;
+
+    border-radius: 8px;
+}
+
+.music-cover {
+    width: 90px;
+    height: 90px;
+
+    object-fit: cover;
+
+    border: 1px solid #FFE29A;
+
+    border-radius: 2px;
+
+    margin-bottom: 5px;
+}
+
+.music-info {
+    width: 100%;
+
+    text-align: center;
+}
+
+.music-title {
+    margin-bottom: 5px;
+
+    font-size: 13px;
+
+    color: #FFE29A;
+
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.music-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.music-controls button {
+    width: 30px;
+    height: 30px;
+
+    padding: 0;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.music-controls button img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+}
+
+.music-controls button:hover {
+   
+    transform: translateY(-1px);
+}
+
+.music-controls button:active{
+    transform: translateY(-2px);
+}
+
+
+.music-avatar-top {
+    position: absolute;
+    top: -25px;
+    right: -10px;
+    width: 45px;
+    height: auto;
+    z-index: 10;
+}
+
+.music-avatar-bottom {
+    position: absolute;
+    bottom: -9px;
+    left: -4px;
+    width: 30px;
+    height: auto;
+    z-index: 10;
+}
+
+.corner-avatar {
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+}
+
+.corner-avatar img {
+    width: 120px;
+    height: auto;
+    display: block;
+}
+
+
+/* ================================
+   GAME BOX
+================================ */
+
+.game-box {
+    width: 100%;
+    max-width: 760px;
+
+    margin: 0 auto;
+
+    padding: 24px;
+
+    background-color: #17465B;
+    opacity: 0.93;
+
+    border: 2px solid #4DB8D8;
+
+    border-radius: 14px;
+
+    position: relative;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.game-header {
+    text-align: center;
+
+    margin-bottom: 18px;
+}
+
+.game-header h1 {
+     font-family: 'Orbitron', sans-serif;
+     font-weight: 900;
+    font-size: 38px;
+    font-style: italic;
+
+    color: rgba(123, 198, 209, 0.705);
+    -webkit-text-stroke: 2px #FFE29A;
+
+    line-height: 1.3;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.human {
+    width:25px;
+}
+
+.game-header span {
+    color: #FFE29A;
+
+    font-family: 'Press Start 2P', monospace;
+
+    font-size: 12px;
+}
+
+
+/* ================================
+   ROUND SELECTION
+================================ */
+
+.round-selection {
+    text-align: center;
+
+    margin-bottom: 18px;
+}
+
+.round-selection h2 {
+    font-size: 22px;
+
+    margin-bottom: 8px;
+
+    color: #FFF8E7;
+}
+
+.round-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.round-buttons button {
+    padding: 8px 18px;
+
+    border: 2px solid #4DB8D8;
+
+    border-radius: 6px;
+
+    background-color: #28657D;
+
+    color: #FFF8E7;
+
+    font-family: 'VT323', monospace;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.round-buttons button:hover {
+    background-color: #4DB8D8;
+
+    color: #17465B;
+}
+
+.round-buttons button:active {
+    transform: translateY(2px);
+}
+
+
+/* ================================
+   BATTLE AREA
+================================ */
+
+.battle-area {
+    width: 400px;
+    height: 260px;
+
+    margin: 10px auto 18px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 6px;
+
+    border: 2px solid #4DB8D8;
+
+    border-radius: 10px;
+
+    background-color: #28657D;
+}
+
+
+/* ================================
+   PLAYERS
+================================ */
+
+.player {
+    width: 167px;
+
+    flex-shrink: 0;
+
+    text-align: center;
+}
+
+.player h2 {
+    font-size: 20px;
+
+    margin-bottom: 5px;
+
+    color: #FFF8E7;
+
+    transform: translateY(40px);
+}
+
+.player img {
+    width: 290px;
+
+    height: auto;
+}
+
+.secondimg {
+    transform: translateX(-123px);
+}
+
+
+/* ================================
+   VS
+================================ */
+
+.vs {
+    width: 50px;
+
+    flex-shrink: 0;
+
+    text-align: center;
+
+    font-family: 'Press Start 2P', monospace;
+
+    font-size: 18px;
+
+    color: #FFE29A;
+}
+
+
+/* ================================
+   GAME RESULT
+================================ */
+
+.game-result {
+    width: 90%;
+    max-width: 500px;
+
+    margin: 0 auto 18px;
+
+    display: none;
+
+    padding: 12px;
+
+    text-align: center;
+
+    border: 2px solid #4DB8D8;
+
+    border-radius: 8px;
+
+    background-color: #28657D;
+}
+
+.game-result-message {
+    font-family: 'Press Start 2P', monospace;
+
+    font-size: 14px;
+
+    color: #FFE29A;
+
+    text-transform: uppercase;
+}
+
+
+/* ================================
+   CHOICES
+================================ */
+
+.choices {
+    text-align: center;
+
+    margin-bottom: 18px;
+}
+
+.choices h2 {
+    font-size: 22px;
+
+    margin-bottom: 8px;
+
+    color: #FFF8E7;
+}
+
+.choice-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.choice-buttons button {
+    min-width: 105px;
+
+    padding: 10px 18px;
+
+    border: 2px solid #4DB8D8;
+
+    border-radius: 7px;
+
+    background-color: #28657D;
+
+    color: #FFF8E7;
+
+    font-family: 'VT323', monospace;
+
+    font-size: 21px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.choice-buttons button:hover {
+    background-color: #FFE29A;
+
+    color: #17465B;
+
+    transform: translateY(-2px);
+}
+
+.choice-buttons button:active {
+    transform: translateY(1px);
+}
+
+
+/* ================================
+   SCOREBOARD
+================================ */
+
+.scoreboard {
+    width: 90%;
+    max-width: 500px;
+
+    margin: 0 auto 14px;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 18px;
+
+    text-align: center;
+
+    border: 2px solid #4DB8D8;
+
+    border-radius: 8px;
+
+    background-color: #28657D;
+}
+
+.score p {
+    font-size: 30px;
+
+    color: #A8DDB5;
+}
+
+.round {
+    padding: 0 20px;
+
+    border-left: 1px solid #4DB8D8;
+
+    border-right: 1px solid #4DB8D8;
+}
+
+.round p {
+    font-size: 18px;
+
+    margin: 2px 0;
+
+    color: #A8E6F0;
+}
+
+.round p:last-child {
+    width: 70px;
+
+    font-size: 23px;
+
+    color: #FFE29A;
+}
+
+
+/* ================================
+   RESULT
+================================ */
+
+.result-area {
+    text-align: center;
+
+    min-height: 40px;
+
+    margin-bottom: 12px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.result-message {
+    font-family: 'Press Start 2P', monospace;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    color: #FFE29A;
+
+    text-transform: uppercase;
+}
+
+
+/* ================================
+   RESTART
+================================ */
+
+.restart-button {
+    display: block;
+
+    margin: 0 auto;
+
+    padding: 9px 24px;
+
+    border: 2px solid #A8DDB5;
+
+    border-radius: 7px;
+
+    background-color: transparent;
+
+    color: #A8DDB5;
+
+    font-family: 'VT323', monospace;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.restart-button:hover {
+    background-color: #A8DDB5;
+
+    color: #17465B;
+
+    transform: translateY(-2px);
+}
+
+.restart-button:active {
+    transform: translateY(1px);
+}
+
+
+/* ================================
+   GAME OVER OVERLAY
+================================ */
+
+.game-over-overlay {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(23, 70, 91, 0.92);
+
+    border-radius: 14px;
+
+    z-index: 1000;
+}
+
+.game-over-box {
+    width: 90%;
+    max-width: 500px;
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background-color: #28657D;
+
+    border: 3px solid #FFE29A;
+
+    border-radius: 12px;
+    position: relative;
+}
+
+.game-over-heading {
+    font-family: 'Press Start 2P', monospace;
+
+    font-size: 28px;
+
+    color: #FFF8E7;
+
+    margin-bottom: 18px;
+}
+
+.game-over-title-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.clap-image {
+    display: none;
+    width: 25px;
+    height: auto;
+    transform: translateY(-8px);
+
+}
+
+.fish-avatar {
+    display: none;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    width: 65px;
+    height: auto;
+    z-index: 10;
+}
+
+.lose-avatar {
+    display: none;
+    position: absolute;
+    right: 10px;
+    bottom: 8px;
+    width: 80px;
+    height: auto;
+    z-index: 10;
+}
+
+.game-over-title {
+    font-family: 'Press Start 2P', monospace;
+
+    font-size: 22px;
+
+    line-height: 1.5;
+
+    margin-bottom: 12px;
+
+    text-transform: uppercase;
+}
+
+.win-game .game-over-title {
+    color: #A8DDB5;
+}
+
+.lose-game .game-over-title {
+    color: #FF9B85;
+}
+
+.draw-game .game-over-title {
+    color: #FFE29A;
+}
+
+.play-again-button {
+    padding: 10px 24px;
+
+    border: 2px solid #A8E6F0;
+
+    border-radius: 7px;
+
+    background-color: transparent;
+
+    color: #A8E6F0;
+
+    font-family: 'VT323', monospace;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+.play-again-button:hover {
+    background-color: #A8E6F0;
+
+    color: #17465B;
+}
+
+.play-again-button:active {
+    transform: translateY(1px);
+}
+
