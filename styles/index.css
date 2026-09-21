@@ -862,6 +862,9 @@ body {
     transform: translateY(1px);
 }
 
+.mobile-notice {
+    display: none;
+}
 
 /* ================================
    MOBILE
@@ -921,5 +924,27 @@ body {
 
     .bottom-left-avatar img {
         display: none;
+    }
+
+     .mobile-notice {
+        display: block;
+
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+
+        padding: 6px 10px;
+
+        background-color: rgba(23, 70, 91, 0.9);
+
+        border: 1px solid #FFE29A;
+        border-radius: 6px;
+
+        color: #FFE29A;
+
+        font-family: 'VT323', monospace;
+        font-size: 12px;
+
+        z-index: 2000;
     }
 }
