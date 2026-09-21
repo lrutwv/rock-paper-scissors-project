@@ -964,6 +964,16 @@ body {
         height: 18px;
     }
 
+    .music-title {
+        display: block;
+        width: 95px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 12px;
+        margin: 0;
+    }
+
     .music-avatar-top{
         width: 25px;
         top: -12px;
