@@ -464,12 +464,16 @@ body {
 }
 
 .player img {
-    width: 205px;
+    width: 250px;
     height: auto;
 }
 
 .secondimg {
-    transform: translateX(-80px);
+    transform: translateX(-112px);
+}
+
+.firstimg{
+    transform: translateX(-12px);
 }
 
 
