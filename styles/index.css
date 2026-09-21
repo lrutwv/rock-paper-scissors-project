@@ -914,4 +914,12 @@ body {
     .corner-avatar {
         display: none;
     }
+
+    .top-right-avatar img {
+        display: none;
+    }
+
+    .bottom-left-avatar img {
+        display: none;
+    }
 }
