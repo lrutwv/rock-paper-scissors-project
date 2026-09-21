@@ -910,8 +910,67 @@ body {
         padding: 6px 9px;
     }
 
+    /* ================================
+       MOBILE MUSIC PLAYER
+    ================================ */
+
     .music-player {
-        display: none;
+        position: fixed;
+
+        top: 10px;
+        right: 10px;
+        left: auto;
+
+        width: auto;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        gap: 6px;
+
+        padding: 5px 7px;
+
+        background-color: rgba(23, 70, 91, 0.95);
+
+        border: 1px solid #FF9B85;
+        border-radius: 7px;
+
+        opacity: 0.95;
+
+        z-index: 3000;
+    }
+
+    .music-cover {
+        width: 36px;
+        height: 36px;
+
+        margin: 0;
+
+        border: 1px solid #FFE29A;
+    }
+
+    .music-info {
+        width: auto;
+    }
+
+    .music-controls {
+        display: flex;
+        gap: 4px;
+    }
+
+    .music-controls button {
+        width: 18px;
+        height: 18px;
+    }
+
+    .music-avatar-top{
+        width: 25px;
+        top: -12px;
+        
+    }
+    .music-avatar-bottom {
+       width: 18px;
     }
 
     .corner-avatar {
