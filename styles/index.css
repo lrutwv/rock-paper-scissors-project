@@ -466,6 +466,8 @@ body {
 .player img {
     width: 250px;
     height: auto;
+
+    transition: opacity 0.15s ease;
 }
 
 .secondimg {

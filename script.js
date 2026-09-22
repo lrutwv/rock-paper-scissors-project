@@ -89,35 +89,50 @@ function getComputerChoice() {
 
 function updateComputerImage(computerChoice) {
 
+    let newImage;
+
     if (computerChoice === "Rock") {
-        computerImage.src = "public/images/rob-rock.png";
+        newImage = "public/images/rob-rock.png";
     }
 
     if (computerChoice === "Paper") {
-        computerImage.src = "public/images/rob-paper.png";
+        newImage = "public/images/rob-paper.png";
     }
 
     if (computerChoice === "Scissors") {
-        computerImage.src = "public/images/rob-scissor.png";
+        newImage = "public/images/rob-scissor.png";
     }
 
+    computerImage.style.opacity = "0";
+
+    setTimeout(function () {
+        computerImage.src = newImage;
+        computerImage.style.opacity = "1";
+    }, 100);
 }
 
 function updatePlayerImage(playerChoice) {
 
+    let newImage;
+
     if (playerChoice === "Rock") {
-        playerImage.src = "public/images/han-rock.png";
+        newImage = "public/images/han-rock.png";
     }
 
     if (playerChoice === "Paper") {
-        playerImage.src = "public/images/han-paper.png";
+        newImage = "public/images/han-paper.png";
     }
 
     if (playerChoice === "Scissors") {
-        playerImage.src = "public/images/han-scissor.png";
+        newImage = "public/images/han-scissor.png";
     }
 
+    playerImage.style.opacity = "0";
 
+    setTimeout(function () {
+        playerImage.src = newImage;
+        playerImage.style.opacity = "1";
+    }, 100);
 }
 
 function checkWinner(playerChoice, computerChoice) {
